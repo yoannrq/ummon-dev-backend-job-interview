@@ -1,0 +1,25 @@
+type Color {
+  """
+  The color id
+  """
+  id: ID!
+  """
+  The color name
+  """
+  name: String!
+  """
+  The color rgb value
+  """
+  rgb: String!
+  """
+  True if transparent
+  """
+  isTransparent: Boolean!
+}
+
+type Query {
+  """
+  The list of available colors
+  """
+  colors: [Color]
+}
