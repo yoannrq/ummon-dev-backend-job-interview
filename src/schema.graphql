@@ -17,9 +17,88 @@ type Color {
   isTransparent: Boolean!
 }
 
+type Element {
+  """
+  The element id
+  """
+  elementId: ID!
+  """
+  The part number of the element
+  """
+  partNum: ID!
+  """
+  The color id of the element
+  """
+  colorId: ID!
+  """
+  The design id of the element
+  """
+  designId: String
+  """
+  The color object of the element
+  """
+  color: Color!
+  """
+  The part object of the element
+  """
+  part: Part!
+}
+
+type Part {
+  """
+  The part id
+  """
+  partNum: ID!
+  """
+  The name of the part
+  """
+  name: String!
+  """
+  the id of the category
+  """
+  categoryId: ID!
+  """
+  The material of the part
+  """
+  material: String
+  """
+  The list of elements
+  """
+  elements: [Element!]
+  """
+  The category object of the part
+  """
+  category: PartCategory!
+}
+
+type PartCategory {
+  """
+  The id of the part category
+  """
+  id: ID!
+  """
+  The name of the part category
+  """
+  name: String!
+  """
+  The list of parts
+  """
+  parts: [Part!]
+}
+
 type Query {
   """
   The list of available colors
   """
   colors: [Color]
+
+  """
+  The list of available elements
+  """
+  elements: [Element]
+
+  """
+  The list of available parts
+  """
+  parts: [Part]
 }

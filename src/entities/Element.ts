@@ -13,7 +13,7 @@ export class Element {
   @Column({ name: "color_id" })
   colorId: string;
 
-  @Column({ name: "design_id" })
+  @Column({ name: "design_id", nullable: true })
   designId: string;
 
   @ManyToOne(() => Color)
@@ -21,6 +21,6 @@ export class Element {
   color: Color;
 
   @ManyToOne(() => Part)
-  @JoinColumn({ name: "part_num", referencedColumnName: "part_num" })
+  @JoinColumn({ name: "part_num", referencedColumnName: "partNum" })
   part: Part;
 }

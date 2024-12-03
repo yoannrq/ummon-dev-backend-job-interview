@@ -8,6 +8,7 @@ import gql from "graphql-tag";
 
 import { ApolloServer } from "@apollo/server";
 import { buildSubgraphSchema } from "@apollo/subgraph";
+import { ApolloServerPluginInlineTraceDisabled } from "@apollo/server/plugin/disabled";
 
 import { readFileSync } from "fs";
 import path from "path";
@@ -25,6 +26,8 @@ export async function serve() {
       typeDefs,
       resolvers,
     }),
+    // Disable inline tracing to resolve error : "Enabling inline tracing for this subgraph. To disable, use ApolloServerPluginInlineTraceDisabled."
+    plugins: [ApolloServerPluginInlineTraceDisabled()],
   });
 
   await apollo.start();
@@ -37,7 +40,7 @@ export async function serve() {
       host: "0.0.0.0",
     });
   } catch (err) {
-    console.error(err)
+    console.error(err);
     process.exit(1);
   }
 }
