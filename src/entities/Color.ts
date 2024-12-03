@@ -12,5 +12,5 @@ export class Color {
   rgb: string;
 
   @Column({ name: "is_trans" })
-  isTransparent: string;
+  isTransparent: boolean;
 }

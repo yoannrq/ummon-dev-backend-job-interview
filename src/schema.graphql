@@ -91,6 +91,10 @@ type Query {
   The list of available colors
   """
   colors: [Color]
+  """
+  The color by id
+  """
+  color(id: ID!): Color
 
   """
   The list of available elements
