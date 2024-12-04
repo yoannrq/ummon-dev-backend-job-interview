@@ -105,4 +105,9 @@ type Query {
   The list of available parts
   """
   parts(limit: Int): [Part]
+
+  """
+  The list of available part categories
+  """
+  partCategories(limit: Int): [PartCategory]
 }
