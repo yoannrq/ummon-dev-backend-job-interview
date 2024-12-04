@@ -90,7 +90,7 @@ type Query {
   """
   The list of available colors
   """
-  colors: [Color]
+  colors(limit: Int): [Color]
   """
   The color by id
   """
@@ -99,10 +99,10 @@ type Query {
   """
   The list of available elements
   """
-  elements: [Element]
+  elements(limit: Int): [Element]
 
   """
   The list of available parts
   """
-  parts: [Part]
+  parts(limit: Int): [Part]
 }
